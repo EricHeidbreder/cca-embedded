@@ -93,4 +93,18 @@ view: cook_hh_income_full {
     value_format_name: usd_0
   }
 
+  measure: hh_income_by_race_25th_percentile {
+    label: "25th Percentile Household Income by Race"
+    type: percentile
+    percentile: 25
+    sql: ${hh_income_by_race} ;;
+  }
+
+  measure: hh_income_by_race_75th_percentile {
+    label: "75th Percentile Household Income by Race"
+    type: percentile
+    percentile: 75
+    sql: ${hh_income_by_race} ;;
+  }
+
 }
