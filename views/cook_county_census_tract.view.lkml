@@ -9,24 +9,28 @@ view: cook_county_census_tract {
   }
 
   dimension: id_geometry {
+    hidden: yes
     label: "Census Tract ID"
     type: string
     sql: ${TABLE}."CensusTract" ;;
   }
 
   dimension: boundary {
+    hidden: yes
     label: "Census Tract Boundary"
     type: string
     sql: ${TABLE}."CensusTractBoundary" ;;
   }
 
   dimension: lat {
+    hidden: yes
     label: "Latitude"
     type: number
     sql: ${TABLE}."CensusTractCenterLat" ;;
   }
 
   dimension: lng {
+    hidden: yes
     label: "Longitude"
     type: number
     sql: ${TABLE}."CensusTractCenterLng" ;;
@@ -37,6 +41,12 @@ view: cook_county_census_tract {
     type: location
     sql_latitude: ${lat} ;;
     sql_longitude: ${lng} ;;
+  }
+
+  dimension: zip {
+    label: "Zip Code"
+    type: zipcode
+    sql: ${TABLE}."zip";;
   }
 
   measure: count {
