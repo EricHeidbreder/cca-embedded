@@ -48,7 +48,7 @@ view: cook_hh_income_full {
     drill_fields: []
   }
 
-  measure: sum_hh_income_by_race{
+  measure: sum_hh_income_by_race {
     label: "Sum of Household Income by Race"
     type: sum
     sql: ${hh_income_by_race} ;;
