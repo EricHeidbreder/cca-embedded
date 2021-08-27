@@ -50,6 +50,7 @@ view: cook_hh_income_full {
   dimension: year {
     type: number
     sql: ${TABLE}."year" ;;
+    value_format: "####"
   }
 
   measure: number_of_records {
