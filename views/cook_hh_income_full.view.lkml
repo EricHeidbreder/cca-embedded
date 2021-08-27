@@ -9,6 +9,7 @@ view: cook_hh_income_full {
   }
 
   dimension: hh_income_by_race {
+    hidden: yes
     label: "Household Income by Race"
     type: number
     sql: ${TABLE}."hh_income_by_race" ;;
