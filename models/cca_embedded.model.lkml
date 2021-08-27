@@ -16,4 +16,12 @@ explore: cook_hh_income_tract_total {}
 
 explore: cook_hh_income_tract_white {}
 
-explore: cook_hh_income_full {}
+explore: cook_hh_income_full {
+  join: cook_county_census_tract {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${cook_hh_income_full.id_geography} = ${cook_county_census_tract.id_geometry} ;;
+  }
+}
+
+explore: cook_county_census_tract {}
