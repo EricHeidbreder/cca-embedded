@@ -12,6 +12,7 @@ view: cook_hh_income_full {
     label: "Household Income by Race"
     type: number
     sql: ${TABLE}."hh_income_by_race" ;;
+    value_format_name: usd
   }
 
   dimension: id_geography {
@@ -53,11 +54,30 @@ view: cook_hh_income_full {
     value_format: "####"
   }
 
-  dimension: hh_income_by_race_tier {
-    type: tier
-    tiers: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 150000, 250001]
-    style: interval
-    sql: ${hh_income_by_race} ;;
+
+  parameter: hh_income_by_race_bucket_size {
+    type: number
+    default_value: "5000"
+  }
+
+  dimension: hh_income_by_race_bucket_lower {
+    type: number
+    hidden: no
+    sql: FLOOR(${hh_income_by_race} / {% parameter hh_income_by_race_bucket_size %})
+      * {% parameter hh_income_by_race_bucket_size %} ;;
+    value_format_name: usd
+  }
+
+  dimension: hh_income_by_race_bucket_upper {
+    type: number
+    hidden: no
+    sql: ${hh_income_by_race_bucket_lower} + {% parameter hh_income_by_race_bucket_size %} ;;
+    value_format_name: usd
+  }
+
+  dimension: hh_income_by_race_buckets {
+    type: string
+    sql: CONCAT(${hh_income_by_race_bucket_lower}, ' - ', ${hh_income_by_race_bucket_upper});;
   }
 
   measure: number_of_records {
