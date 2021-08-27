@@ -15,3 +15,5 @@ explore: cook_hh_income_tract_black {}
 explore: cook_hh_income_tract_total {}
 
 explore: cook_hh_income_tract_white {}
+
+explore: cook_hh_income_full {}
