@@ -7,24 +7,31 @@ view: cook_county_census_tract {
     sql: ${TABLE}."pk" ;;
   }
 
-  dimension: census_tract {
-    type: number
+  dimension: id_geometry {
+    type: string
     sql: ${TABLE}."CensusTract" ;;
   }
 
-  dimension: census_tract_boundary {
+  dimension: boundary {
     type: string
     sql: ${TABLE}."CensusTractBoundary" ;;
   }
 
-  dimension: census_tract_center_lat {
+  dimension: lat {
     type: number
     sql: ${TABLE}."CensusTractCenterLat" ;;
   }
 
-  dimension: census_tract_center_lng {
+  dimension: lng {
     type: number
     sql: ${TABLE}."CensusTractCenterLng" ;;
+  }
+
+  dimension: location {
+    type: location
+    sql_latitude: ${lat} ;;
+    sql_longitude: ${lng} ;;
+
   }
 
   measure: count {
