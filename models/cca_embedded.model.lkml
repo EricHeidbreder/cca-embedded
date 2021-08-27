@@ -13,7 +13,10 @@ persist_with: cca_embedded_default_datagroup
 
 
 explore: cook_hh_income_full {
+  view_label: "Household Income"
+  label: "Household Income"
   join: cook_county_census_tract {
+    view_label: "Geographic Data"
     relationship: many_to_one
     type: left_outer
     sql_on: ${cook_hh_income_full.id_geography} = ${cook_county_census_tract.id_geometry} ;;
