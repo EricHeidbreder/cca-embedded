@@ -32,9 +32,19 @@ view: cook_hh_income_full {
     hidden: yes
   }
 
-  dimension: race {
+  dimension: race_original {
+    hidden: yes
     type: string
     sql: ${TABLE}."race" ;;
+  }
+
+  dimension: race {
+    type: string
+    sql:
+      CASE
+          WHEN ${race_original} = 'Total' THEN 'Non Black/White'
+      ELSE ${race_original} END
+    ;;
   }
 
   dimension: year {
