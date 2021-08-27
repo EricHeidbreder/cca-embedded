@@ -53,9 +53,15 @@ view: cook_hh_income_full {
     value_format: "####"
   }
 
+  dimension: hh_income_by_race_tier {
+    type: tier
+    tiers: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 150000, 250001]
+    style: interval
+    sql: ${hh_income_by_race} ;;
+  }
+
   measure: number_of_records {
     type: count
-    drill_fields: []
   }
 
   measure: sum_hh_income_by_race {
