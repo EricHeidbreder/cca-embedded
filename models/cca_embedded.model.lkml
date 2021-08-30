@@ -4,8 +4,8 @@ connection: "cca_embedded_looker"
 include: "/views/**/*.view"
 
 datagroup: cca_embedded_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  # sql_trigger: CURRENT_DATE;;
+  max_cache_age: "24 hours"
 }
 
 persist_with: cca_embedded_default_datagroup
