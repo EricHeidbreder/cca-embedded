@@ -129,6 +129,7 @@ view: cook_hh_income_full {
   }
 
   measure: median_hh_income_starting_year {
+    # label will update based on the parameter you have selected, this only displays in visualizations
     label: "Median Houshold Income {{ cook_hh_income_full.starting_year._parameter_value }}"
     view_label: "Year by Year Comparisons"
     group_label: " Starting Year"
@@ -144,6 +145,7 @@ view: cook_hh_income_full {
   }
 
   measure: median_hh_income_comparison_year {
+    # label will update based on the parameter you have selected, this only displays in visualizations
     label: "Median Houshold Income {{ cook_hh_income_full.comparison_year._parameter_value }}"
     view_label: "Year by Year Comparisons"
     group_label: "Comparison Year"
