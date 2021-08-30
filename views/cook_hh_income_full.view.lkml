@@ -55,6 +55,28 @@ view: cook_hh_income_full {
     value_format: "####"
   }
 
+  dimension: year_string {
+    description: "Dimension used in building parameter suggestions"
+    type: string
+    sql: ${TABLE}."year" ;;
+    suggestions: ["2018", "2017", "2016", "2015", "2014", "2013"]
+  }
+
+  parameter: starting_year {
+    view_label: "Year by Year Comparisons"
+    description: "Alters the starting year of your analysis"
+    label: " Starting Year"
+    type: unquoted
+    suggest_dimension: year_string
+  }
+
+  parameter: comparison_year {
+    view_label: "Year by Year Comparisons"
+    description: "Alters the comparison year of your analysis"
+    label: "Comparison Year"
+    type: unquoted
+    suggest_dimension: year_string
+  }
 
   parameter: hh_income_by_race_bucket_size {
     type: number
@@ -103,6 +125,36 @@ view: cook_hh_income_full {
     label: "Median Household Income by Race"
     type: median
     sql: ${hh_income_by_race} ;;
+    value_format_name: usd_0
+  }
+
+  measure: median_hh_income_starting_year {
+    label: "Median Houshold Income {{ cook_hh_income_full.starting_year._parameter_value }}"
+    view_label: "Year by Year Comparisons"
+    group_label: " Starting Year"
+    group_item_label: "Median Household Income"
+    type: median
+    sql:
+    CASE
+      WHEN ${year} = {% parameter starting_year %}
+      THEN ${hh_income_by_race}
+    END
+      ;;
+    value_format_name: usd_0
+  }
+
+  measure: median_hh_income_comparison_year {
+    label: "Median Houshold Income {{ cook_hh_income_full.comparison_year._parameter_value }}"
+    view_label: "Year by Year Comparisons"
+    group_label: "Comparison Year"
+    group_item_label: "Median Household Income"
+    type: median
+    sql:
+    CASE
+      WHEN ${year} = {% parameter comparison_year %}
+      THEN ${hh_income_by_race}
+    END
+    ;;
     value_format_name: usd_0
   }
 
