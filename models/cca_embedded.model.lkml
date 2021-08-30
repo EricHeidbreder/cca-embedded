@@ -14,6 +14,18 @@ explore: cook_hh_income_full {
   view_label: "Household Income"
   label: "Household Income"
 
+  query: year_by_year_comparison {
+    label: "Median Income Year by Year"
+    description: "Explore Year by Year stats using the filters to select your two years to compare."
+    dimensions: [race]
+    measures: [median_hh_income_comparison_year, median_hh_income_starting_year]
+    pivots: [race]
+    filters: [
+      cook_hh_income_full.comparison_year: "2017",
+      cook_hh_income_full.starting_year: "2018"
+    ]
+  }
+
   join: cook_county_census_tract {
     view_label: "Geographic Data"
     relationship: many_to_one
