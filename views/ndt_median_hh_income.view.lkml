@@ -10,9 +10,9 @@ view: ndt_median_hh_income {
     }
   }
 
-  dimension: median_hh_income_by_race {
-    label: "Household Income Median Household Income by Race"
-    value_format: "$#,##0"
+  dimension: total_median_income {
+    label: "Total Median Income"
+    value_format_name: usd_0
     type: number
   }
 }
