@@ -10,6 +10,10 @@ datagroup: cca_embedded_default_datagroup {
 
 persist_with: cca_embedded_default_datagroup
 
+datagroup: test {
+  max_cache_age: "3 hours"
+}
+
 explore: cook_hh_income_full {
   view_label: "Household Income"
   label: "Household Income"
