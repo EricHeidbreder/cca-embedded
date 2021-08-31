@@ -11,7 +11,7 @@ view: ndt_median_hh_income {
   }
 
   dimension: total_median_income {
-    label: "Total Median Income"
+    label: "Overall Total Median Income"
     value_format_name: usd_0
     type: number
   }
