@@ -57,6 +57,7 @@ view: cook_hh_income_full {
 
   dimension: year_string {
     description: "Dimension used in building parameter suggestions"
+    hidden: yes
     type: string
     sql: ${TABLE}."year" ;;
     suggestions: ["2018", "2017", "2016", "2015", "2014", "2013"]
