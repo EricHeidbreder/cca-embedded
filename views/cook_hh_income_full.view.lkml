@@ -69,6 +69,7 @@ view: cook_hh_income_full {
     label: " Starting Year"
     type: unquoted
     suggest_dimension: year_string
+    default_value: "2018"
   }
 
   parameter: comparison_year {
@@ -77,6 +78,7 @@ view: cook_hh_income_full {
     label: "Comparison Year"
     type: unquoted
     suggest_dimension: year_string
+    default_value: "2017"
   }
 
   parameter: hh_income_by_race_bucket_size {
@@ -124,6 +126,7 @@ view: cook_hh_income_full {
   }
 
   measure: median_hh_income_by_race {
+    group_label: "Median"
     label: "Median Household Income"
     type: median
     sql: ${hh_income_by_race} ;;
@@ -163,7 +166,8 @@ view: cook_hh_income_full {
   }
 
   measure: pct_change_comparison_to_starting {
-    label: "Pct Change {{ cook_hh_income_full.comparison_year._parameter_value }} to {{ cook_hh_income_full.starting_year._parameter_value }}"
+    view_label: "Year by Year Comparisons"
+    label: "Pct Change {{ cook_hh_income_full.comparison_year._parameter_value }} - {{ cook_hh_income_full.starting_year._parameter_value }}"
     description: "Percent change between two comparison years"
     type: number
     sql: ${median_hh_income_starting_year} / ${median_hh_income_comparison_year} - 1 ;;
