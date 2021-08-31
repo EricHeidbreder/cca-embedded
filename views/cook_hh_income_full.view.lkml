@@ -110,21 +110,21 @@ view: cook_hh_income_full {
   }
 
   measure: sum_hh_income_by_race {
-    label: "Sum of Household Income by Race"
+    label: "Sum of Household Income"
     type: sum
     sql: ${hh_income_by_race} ;;
     value_format_name: usd_0
   }
 
   measure: avg_hh_income_by_race {
-    label: "Average Household Income by Race"
+    label: "Average Household Income"
     type: average
     sql: ${hh_income_by_race} ;;
     value_format_name: usd_0
   }
 
   measure: median_hh_income_by_race {
-    label: "Median Household Income by Race"
+    label: "Median Household Income"
     type: median
     sql: ${hh_income_by_race} ;;
     value_format_name: usd_0
@@ -171,28 +171,28 @@ view: cook_hh_income_full {
   }
 
   measure: min_hh_income_by_race {
-    label: "Minimum Household Income by Race"
+    label: "Minimum Household Income"
     type: min
     sql: ${hh_income_by_race} ;;
     value_format_name: usd_0
   }
 
   measure: max_hh_income_by_race {
-    label: "Maximum Household Income by Race"
+    label: "Maximum Household Income"
     type: max
     sql: ${hh_income_by_race} ;;
     value_format_name: usd_0
   }
 
   measure: hh_income_by_race_25th_percentile {
-    label: "25th Percentile Household Income by Race"
+    label: "25th Percentile Household Income"
     type: percentile
     percentile: 25
     sql: ${hh_income_by_race} ;;
   }
 
   measure: hh_income_by_race_75th_percentile {
-    label: "75th Percentile Household Income by Race"
+    label: "75th Percentile Household Income"
     type: percentile
     percentile: 75
     sql: ${hh_income_by_race} ;;
