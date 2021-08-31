@@ -13,6 +13,12 @@ view: ndt_income_lag_1y {
       }
     }
   }
+  dimension: pk3__geo_year_race {
+    primary_key: yes
+    type: string
+    sql: CONCAT(${id_geography}, ${id_year}, ${id_race}) ;;
+  }
+
   dimension: id_geography {
     hidden: yes
     label: "Geographic Data Map Coordinates"
