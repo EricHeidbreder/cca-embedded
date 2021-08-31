@@ -85,7 +85,7 @@ view: cook_hh_income_full {
 
   dimension: hh_income_by_race_bucket_lower {
     type: number
-    hidden: no
+    hidden: yes
     sql: FLOOR(${hh_income_by_race} / {% parameter hh_income_by_race_bucket_size %})
       * {% parameter hh_income_by_race_bucket_size %} ;;
     value_format_name: usd
@@ -93,12 +93,13 @@ view: cook_hh_income_full {
 
   dimension: hh_income_by_race_bucket_upper {
     type: number
-    hidden: no
+    hidden: yes
     sql: ${hh_income_by_race_bucket_lower} + {% parameter hh_income_by_race_bucket_size %} ;;
     value_format_name: usd
   }
 
   dimension: hh_income_by_race_buckets {
+    label: "Income Buckets"
     type: string
     sql: CONCAT(${hh_income_by_race_bucket_lower}, ' - ', ${hh_income_by_race_bucket_upper});;
   }
@@ -158,6 +159,14 @@ view: cook_hh_income_full {
     END
     ;;
     value_format_name: usd_0
+  }
+
+  measure: pct_change_comparison_to_starting {
+    label: "Pct Change {{ cook_hh_income_full.comparison_year._parameter_value }} to {{ cook_hh_income_full.starting_year._parameter_value }}"
+    description: "Percent change between two comparison years"
+    type: number
+    sql: ${median_hh_income_starting_year} / ${median_hh_income_comparison_year} - 1 ;;
+    value_format_name: percent_2
   }
 
   measure: min_hh_income_by_race {
