@@ -30,7 +30,7 @@ explore: cook_hh_income_full {
     view_label: "Geographic Data"
     relationship: many_to_one
     type: left_outer
-    sql_on: ${cook_hh_income_full.id_geography} = ${cook_county_census_tract.id_geometry} ;;
+    sql_on: ${cook_hh_income_full.id_geography} = ${cook_county_census_tract.id_geography} ;;
   }
 
   # join ndt to add median income column
@@ -39,6 +39,17 @@ explore: cook_hh_income_full {
     type: left_outer
     sql_on: 1=1 ;;
   }
+
+  join: ndt_income_lag_1y {
+    relationship: many_to_one
+    view_label: "Household Income"
+    type: left_outer
+    sql_on: ${cook_hh_income_full.id_year} = ${ndt_income_lag_1y.id_year}
+          and ${cook_hh_income_full.id_race} = ${ndt_income_lag_1y.id_race}
+          and ${cook_hh_income_full.id_geography} = ${ndt_income_lag_1y.id_geography} ;;
+    fields: [ndt_income_lag_1y.avg_income_lag_1y]
+  }
+
 }
 
 # explore: cook_county_census_tract {}
