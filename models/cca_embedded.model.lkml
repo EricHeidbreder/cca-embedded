@@ -47,7 +47,7 @@ explore: cook_hh_income_full {
     sql_on: ${cook_hh_income_full.id_year} = ${ndt_income_lag_1y.id_year}
           and ${cook_hh_income_full.id_race} = ${ndt_income_lag_1y.id_race}
           and ${cook_hh_income_full.id_geography} = ${ndt_income_lag_1y.id_geography} ;;
-    fields: [ndt_income_lag_1y.avg_income_lag_1y]
+    fields: [ndt_income_lag_1y.pct_change_from_last_year]
   }
 
 }
