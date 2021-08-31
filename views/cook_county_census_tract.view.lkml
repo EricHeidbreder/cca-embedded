@@ -8,7 +8,7 @@ view: cook_county_census_tract {
     hidden: yes
   }
 
-  dimension: id_geometry {
+  dimension: id_geography {
     hidden: yes
     label: "Census Tract ID"
     type: string
