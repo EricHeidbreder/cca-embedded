@@ -13,7 +13,7 @@ view: cook_hh_income_full {
     label: "Household Income by Race"
     type: number
     sql: ${TABLE}."hh_income_by_race" ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   dimension: id_geography {
@@ -91,14 +91,14 @@ view: cook_hh_income_full {
     hidden: yes
     sql: FLOOR(${hh_income_by_race} / {% parameter hh_income_by_race_bucket_size %})
       * {% parameter hh_income_by_race_bucket_size %} ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   dimension: hh_income_by_race_bucket_upper {
     type: number
     hidden: yes
     sql: ${hh_income_by_race_bucket_lower} + {% parameter hh_income_by_race_bucket_size %} ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   dimension: hh_income_by_race_buckets {
