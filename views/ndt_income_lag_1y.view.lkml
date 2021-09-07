@@ -54,4 +54,11 @@ view: ndt_income_lag_1y {
     sql: AVG(${avg_income_base} / ${avg_income_lag_1y} - 1) ;;
     value_format_name: percent_2
   }
+  measure: med_income_lag_1y {
+    group_label: "Median"
+    label: "Median Income Last Year"
+    type: median
+    sql: ${avg_income_lag_1y} ;;
+    value_format_name: usd_0
+  }
 }
