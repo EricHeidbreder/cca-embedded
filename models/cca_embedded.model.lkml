@@ -5,7 +5,7 @@ include: "/views/**/*.view"
 
 datagroup: cca_embedded_default_datagroup {
   # sql_trigger: CURRENT_DATE;;
-  max_cache_age: "24 hours"
+  max_cache_age: "72 hours"
 }
 
 persist_with: cca_embedded_default_datagroup
