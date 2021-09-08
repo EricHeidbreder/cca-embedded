@@ -55,15 +55,7 @@ explore: cook_hh_income_full {
 
 }
 
-explore: test_explore {
-  extends: [cook_hh_income_full]
-  view_name: cook_hh_income_full
-  persist_with: test
-  join: ndt_median_hh_income {
-    from: cook_hh_income_full
-    fields: []
-  }
-}
+
 
 # explore: cook_county_census_tract {}
 
