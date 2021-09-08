@@ -4,8 +4,7 @@ connection: "cca_embedded_looker"
 include: "/views/**/*.view"
 
 datagroup: cca_embedded_default_datagroup {
-  # sql_trigger: CURRENT_DATE;;
-  max_cache_age: "72 hours"
+  sql_trigger: 1 ;;
 }
 
 persist_with: cca_embedded_default_datagroup
