@@ -7,6 +7,10 @@ datagroup: cca_embedded_default_datagroup {
   sql_trigger: 1 ;;
 }
 
+datagroup: test {
+  max_cache_age: "5 seconds"
+}
+
 persist_with: cca_embedded_default_datagroup
 
 explore: cook_hh_income_full {
@@ -49,6 +53,16 @@ explore: cook_hh_income_full {
     fields: [ndt_income_lag_1y.pct_change_from_last_year, ndt_income_lag_1y.med_income_lag_1y]
   }
 
+}
+
+explore: test_explore {
+  extends: [cook_hh_income_full]
+  view_name: cook_hh_income_full
+  persist_with: test
+  join: ndt_median_hh_income {
+    from: cook_hh_income_full
+    fields: []
+  }
 }
 
 # explore: cook_county_census_tract {}
