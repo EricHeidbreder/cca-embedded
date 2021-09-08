@@ -7,10 +7,6 @@ datagroup: cca_embedded_default_datagroup {
   sql_trigger: 1 ;;
 }
 
-datagroup: test {
-  max_cache_age: "5 seconds"
-}
-
 persist_with: cca_embedded_default_datagroup
 
 explore: cook_hh_income_full {
@@ -54,8 +50,6 @@ explore: cook_hh_income_full {
   }
 
 }
-
-
 
 # explore: cook_county_census_tract {}
 
