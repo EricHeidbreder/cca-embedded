@@ -50,11 +50,3 @@ explore: cook_hh_income_full {
   }
 
 }
-
-# explore: cook_county_census_tract {}
-
-# explore: cook_hh_income_tract_black {}
-
-# explore: cook_hh_income_tract_total {}
-
-# explore: cook_hh_income_tract_white {}
