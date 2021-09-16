@@ -43,12 +43,6 @@ view: cook_county_census_tract {
     sql_longitude: ${lng} ;;
   }
 
-  dimension: zip {
-    label: "Zip Code"
-    type: zipcode
-    sql: ${TABLE}."zip";;
-  }
-
   measure: count {
     label: "Number of Records"
     type: count
