@@ -107,6 +107,12 @@ view: cook_hh_income_full {
     sql: CONCAT(${hh_income_by_race_bucket_lower}, ' - ', ${hh_income_by_race_bucket_upper});;
   }
 
+  dimension: zip {
+    label: "Zip Code"
+    type: zipcode
+    sql: ${TABLE}."zip";;
+  }
+
   measure: number_of_records {
     type: count
   }
