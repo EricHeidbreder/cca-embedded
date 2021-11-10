@@ -3,7 +3,6 @@ looker.plugins.visualizations.add({
     // what the visualization used to have. The properties are now set via the manifest
     // form within the admin/visualizations page of Looker
     id: "test_viz_proj",
-    label: "Is test",
     options: {
       font_size: {
         type: "string",
@@ -54,7 +53,7 @@ looker.plugins.visualizations.add({
       this.clearErrors();
 
       // Throw some errors and exit if the shape of the data isn't what this chart needs
-      if (queryResponse.fields.dimensions.length == 0) {
+      if (queryResponse.fields.dimensions.length === 0) {
         this.addError({title: "No Dimensions", message: "This chart requires dimensions."});
         return;
       }
