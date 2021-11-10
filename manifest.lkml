@@ -6,3 +6,9 @@ project_name: "cca_embedded"
 # local_dependency: {
 #   project: "name_of_other_project"
 # }
+
+visualization: {
+  id: "test_viz_proj"
+  label: "Test Visualization"
+  file: "visualizations/test_viz.js"
+}
