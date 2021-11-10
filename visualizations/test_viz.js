@@ -2,7 +2,7 @@ looker.plugins.visualizations.add({
     // Id and Label are legacy properties that no longer have any function besides documenting
     // what the visualization used to have. The properties are now set via the manifest
     // form within the admin/visualizations page of Looker
-    id: "bluggz",
+    id: "not_matching_the_viz_param",
     options: {
       font_size: {
         type: "string",
