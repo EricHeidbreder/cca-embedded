@@ -18,6 +18,7 @@ view: cook_hh_income_full {
 
   dimension: id_geography {
     label: "Census Tract ID"
+    map_layer_name: census_tract
     type: string
     sql: ${TABLE}."id_geography" ;;
   }

@@ -7,6 +7,14 @@ datagroup: cca_embedded_default_datagroup {
   sql_trigger: 1 ;;
 }
 
+map_layer: census_tract {
+  file: "/map_layers/CookCountyCensusTract.json"
+  format: topojson
+  label: "Census Tract"
+  # property_key: "GEOID"
+  property_label_key: "NAMELSAD"
+}
+
 persist_with: cca_embedded_default_datagroup
 
 explore: cook_hh_income_full {
