@@ -104,8 +104,10 @@ view: cook_hh_income_full {
 
   dimension: hh_income_by_race_buckets {
     label: "Income Buckets"
-    type: string
-    sql: CONCAT(${hh_income_by_race_bucket_lower}, ' - ', ${hh_income_by_race_bucket_upper});;
+    type: number
+    sql: ${hh_income_by_race_bucket_lower};;
+    value_format_name: usd_0
+    html: {{ rendered_value }} - {{ hh_income_by_race_bucket_upper._rendered_value }} ;;
   }
 
   dimension: zip {
