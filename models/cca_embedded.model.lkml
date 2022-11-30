@@ -4,7 +4,7 @@ connection: "cca_embedded_looker"
 include: "/views/**/*.view"
 
 datagroup: cca_embedded_default_datagroup {
-  sql_trigger: SELECT COUNT(DISTINCT "race") FROM public.cook_hh_income_full ;;
+  sql_trigger: SELECT 1 ;;
 }
 
 map_layer: census_tract {
